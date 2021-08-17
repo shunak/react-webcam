@@ -1,7 +1,13 @@
-version: "3"
-
-x-dev-base: &dev-base
-  build: .
-  volumes:
-    - .:/app
-    - /app/node_modules
+version: '3'
+services:
+  node:
+    build:
+      context: .
+    tty: true
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/app
+    command: sh -c "yarn start"
+    ports:
+      - "8080:8080"
