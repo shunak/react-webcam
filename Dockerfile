@@ -5,7 +5,7 @@
 #    rm -rf /var/lib/apt/lists/*
 
 # Install node
-FROM node:15.0.1-alpine3.11
+FROM node:16.6.2-alpine3.11
 
 # mkdir app directory to container and cd app/
 WORKDIR /app
