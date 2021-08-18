@@ -1,7 +1,8 @@
 version: '3'
 services:
   node:
-    build: .
+    build:
+      context: .
     tty: true
     environment:
       - NODE_ENV=production

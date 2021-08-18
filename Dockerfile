@@ -5,15 +5,17 @@
 #    rm -rf /var/lib/apt/lists/*
 
 # Install node
-FROM node:15.0.1-alpine3.11
+ARG VERSION=15.0.1-alpine3.11
+# FROM node:15.0.1-alpine3.11
+FROM node:$VERSION
 
 # mkdir app directory to container and cd app/
 WORKDIR /app
 
 # Copy local files to container
-COPY . .
+# COPY . .
 
-RUN yarn install && yarn build
+# RUN yarn install && yarn build
 
 # CMD yarn start
 # ENTRYPOINT yarn start
