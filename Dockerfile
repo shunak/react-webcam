@@ -13,9 +13,9 @@ FROM node:$VERSION
 WORKDIR /app
 
 # Copy local files to container
-# COPY . .
+COPY . .
 
-# RUN yarn install && yarn build
+RUN yarn install && yarn build
 
 # CMD yarn start
 # ENTRYPOINT yarn start
