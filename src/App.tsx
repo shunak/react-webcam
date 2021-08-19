@@ -37,6 +37,7 @@ export const App = () => {
               audio={false}
               width={540}
               height={360}
+			  border-radius={100%}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
               videoConstraints={videoConstraints}
