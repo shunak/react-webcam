@@ -1,13 +1,13 @@
-version: '3'
-services:
-  node:
-    build:
-      context: .
-    tty: true
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./:/app
-    command: sh -c "yarn start"
-    ports:
-      - "8080:8080"
+steps:
+- id: 'Build the container image'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/shu-2021060/react-webcam', '.']
+- id : 'Push the container image to Container Registry'
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/shu-2021060/react-webcam']
+- id: 'Deploy container image to Cloud Run'
+  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'react-stealcam', '--image', 'gcr.io/shu-2021060/react-webcam', '--region', 'us-central1', '--platform', 'managed']
+images:
+- gcr.io/shu-2021060/react-webcam
