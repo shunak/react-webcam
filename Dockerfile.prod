@@ -14,4 +14,4 @@ COPY . .
 RUN yarn install --production
 RUN yarn build
 
-CMD yarn start:prod
+CMD yarn start
