@@ -1,9 +1,3 @@
-##Install server
-#FROM debian:buster-slim
-#RUN set -x && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-#    ca-certificates && \
-#    rm -rf /var/lib/apt/lists/*
-
 # Install node
 ARG VERSION=15.0.1-alpine3.11
 # FROM node:15.0.1-alpine3.11
@@ -16,10 +10,3 @@ WORKDIR /app
 COPY . .
 
 RUN yarn install
-
-# CMD yarn start
-# ENTRYPOINT yarn start
-
-# COPY --from=builder /app/build /app/build
-
-# EXPOSE 8080
