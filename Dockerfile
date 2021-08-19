@@ -15,7 +15,7 @@ WORKDIR /app
 # Copy local files to container
 COPY . .
 
-RUN yarn install && yarn build
+RUN yarn install
 
 # CMD yarn start
 # ENTRYPOINT yarn start
