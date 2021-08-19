@@ -22,7 +22,7 @@ export const App = () => {
   return (
     <>
       <header>
-        <h1>react-webcam</h1>
+        <h1>Take a picture</h1>
       </header>
       {isCaptureEnable || (
         <button onClick={() => setCaptureEnable(true)}>開始</button>
