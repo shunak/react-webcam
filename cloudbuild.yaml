@@ -1,13 +1,20 @@
 steps:
 - id: 'Build the container image'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/shu-2021060/react-webcam', '.']
+  args: [
+    'build','.',
+    '-f','Dockerfile.prod',
+    '-t','gcr.o/shu-2021060/react-webcam',
+   ]
+
 - id : 'Push the container image to Container Registry'
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/shu-2021060/react-webcam']
+  name: 'gcr.o/cloud-builders/docker'
+  args: ['push', 'gcr.o/shu-2021060/react-webcam']
+
 - id: 'Deploy container image to Cloud Run'
   name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: ['run', 'deploy', 'react-stealcam', '--image', 'gcr.io/shu-2021060/react-webcam', '--region', 'us-central1', '--platform', 'managed']
+
 images:
 - gcr.io/shu-2021060/react-webcam
