@@ -42,7 +42,7 @@ export const App = () => {
               videoConstraints={videoConstraints}
             />
           </div>
-          <button onClick={capture}>キャプチャ</button>
+          <button onClick={capture}>シャッター</button>
         </>
       )}
       {url && (
